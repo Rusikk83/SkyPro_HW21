@@ -17,8 +17,8 @@ sklad_items = {
 sklad1 = Store(sklad_items)   # создаем и склад с наполнением
 shop1 = Shop(shop_items)  # создаем магазин с наполнением
 
-points = {"склад_1": sklad1,
-          "магазин_1": shop1}  # создаем список точек доставки
+points = {"склад": sklad1,
+          "магазин": shop1}  # создаем список точек доставки
 
 def main():
     print("Добрый день!\n")
@@ -41,6 +41,10 @@ def main():
         try:
             request = Request(user_input, points)  #парсим запрос пользователя в объект
         except RequestError as error:
+            print(error.message)  # выводим сообщение об ошибке, если запрос не валиден
+            continue
+
+        except NotPointForRequest as error:
             print(error.message)  # выводим сообщение об ошибке, если запрос не валиден
             continue
 

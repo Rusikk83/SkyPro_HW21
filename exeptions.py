@@ -14,4 +14,7 @@ class ToManyPositions(Exception):
     message = "Слишком много уникальных позиций"
 
 class RequestError(Exception):
-    message = "Ошибка запроса"
+    message = "Ошибка формата запроса"
+
+class NotPointForRequest(Exception):
+    message = "Нет магазина или склада указанного в запросе"

@@ -90,7 +90,7 @@ class Request:  # класс для запросов
             raise RequestError
         if route[4] not in storages.keys() and route[6] not in storages.keys():  # вызываем исключение ели
             # нет существующего склада и магазина в запросе
-            raise RequestError
+            raise NotPointForRequest
 
         self.from_ = route[4]
         self.to = route[6]
